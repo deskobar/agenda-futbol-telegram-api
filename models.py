@@ -1,7 +1,8 @@
 import databases
 import orm
+from settings import DATABASE_URL
 
-database = databases.Database("sqlite:///db/db.sqlite")
+database = databases.Database(DATABASE_URL)
 models = orm.ModelRegistry(database=database)
 
 
