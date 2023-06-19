@@ -6,8 +6,8 @@ async def set_alias(user_id: str, team_name: str, alias: str):
     if prev_alias is None:
         await Alias.objects.create(user_id=user_id, team_name=team_name, alias=alias)
     else:
-        prev_alias.team_name = team_name
-        await prev_alias.save()
+        prev_alias.alias = alias
+        await prev_alias.update()
     return "Alias set successfully"
 
 
