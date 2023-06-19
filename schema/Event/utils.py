@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from thefuzz import fuzz
 
+from cache import ttl_cache
 from constants import LOW_THRESHOLD
 from models import Alias
 from settings import URL
@@ -47,6 +48,7 @@ def process_df_using_html(df, html):
     return df_cpy
 
 
+@ttl_cache(ttl=60)
 def get_events_df():
     """
     Get a Pandas Dataframe with all the events available in the target WebSite.
