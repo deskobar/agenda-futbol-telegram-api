@@ -163,8 +163,7 @@ def calculate_score(row, txt):
 
 
 async def may_get_team_name_from_user_and_alias(user_id: str, alias: str) -> str | None:
-    try:
-        alias = await Alias.objects.get(user_id=user_id, alias=alias)
-        return alias.team_name
-    except Exception:  # noqa
+    alias = await Alias.objects.get_or_none(user_id=user_id, alias=alias)
+    if not alias:
         return None
+    return alias.team_name
