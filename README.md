@@ -15,7 +15,7 @@ Si eres ñoño como yo, te encantará saber cuales son las tecnologías usadas:
 - Python como lenguaje de programación
 - FastAPI como framework web
 - GraphQL como lenguaje de consulta
-- ORM (SQLAlchemy) para consultar la base de datos
+- ORMAR (SQLAlchemy) para consultar la base de datos
 - Aurora Serverless PostgreSQL como base de datos de PRD
 
 --- 
