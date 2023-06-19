@@ -1,6 +1,3 @@
-from os.path import exists
-from pathlib import Path
-
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -9,7 +6,7 @@ from thefuzz import fuzz
 from constants import LOW_THRESHOLD
 from models import Alias
 from settings import URL
-from utils import parse_day_to_date, get_current_datetime
+from utils import parse_day_to_date
 
 
 def get_html_text():
@@ -55,21 +52,10 @@ def get_events_df():
     Get a Pandas Dataframe with all the events available in the target WebSite.
     :return: A Pandas Dataframe.
     """
-    current_date = get_current_datetime().date()
-    df_base_path = Path("media")
-    df_base_path.mkdir(exist_ok=True)
-    df_path = df_base_path / f"{current_date}.pkl"
-
-    if not exists(df_path):
-        html = get_html_text()
-        raw_df = pd.read_html(html)[0]
-        df = process_df_using_html(raw_df, html)
-        # Saving the Dataframe to avoid unnecessary requests over the Website.
-        df.to_pickle(df_path)
-        return df
-    else:
-        df = pd.read_pickle(df_path)
-        return df
+    html = get_html_text()
+    raw_df = pd.read_html(html)[0]
+    df = process_df_using_html(raw_df, html)
+    return df
 
 
 def get_events_df_per_date(df, date):
