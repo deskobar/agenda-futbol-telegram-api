@@ -10,7 +10,6 @@ app.include_router(graphql_app, prefix="/api/graphql")
 @app.on_event("startup")
 async def startup_event():
     try:
-        await database.connect()
         metadata.create_all(engine)
     except Exception as e:  # noqa
         print(e)
@@ -20,5 +19,6 @@ async def startup_event():
 async def shutdown():
     try:
         await database.disconnect()
+        pass
     except Exception as e:  # noqa
         print(e)
