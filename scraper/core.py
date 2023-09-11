@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from cache import ttl_cache
-from settings import URL
+from settings import URL, REQUEST_TIMEOUT
 from utils import parse_day_to_date
 
 
@@ -12,7 +12,7 @@ def get_html_text():
     Get the HTML content as plain text
     :return: A string html
     """
-    r = requests.get(URL)
+    r = requests.get(URL, timeout=REQUEST_TIMEOUT)
     return r.text
 
 
