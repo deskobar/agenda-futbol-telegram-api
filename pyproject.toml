@@ -48,6 +48,7 @@ uvloop = "0.16.0"
 watchfiles = "0.16.1"
 websockets = "10.3"
 ormar = {extras = ["postgresql"], version = "^0.12.2"}
+html5lib = "^1.1"
 
 
 [tool.poetry.group.dev.dependencies]
