@@ -17,4 +17,4 @@ EXPOSE ${PORT}
 
 ENTRYPOINT ["poetry", "run"]
 
-CMD ["uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "${PORT}"]
+CMD uvicorn api.app:app --host 0.0.0.0 --port $PORT
