@@ -1,8 +1,8 @@
-FROM python:3.10.9
+FROM python:3.10.9-slim
 
 WORKDIR /app
 
-RUN pip install --upgrade pip && pip install "poetry==1.4.2"
+RUN pip install --upgrade pip && pip install "poetry==1.8.3"
 
 COPY poetry.lock pyproject.toml ./
 
