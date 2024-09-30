@@ -8,21 +8,20 @@ packages = []
 
 [tool.poetry.dependencies]
 python = "3.10.9"
-beautifulsoup4 = "4.11.1"
+beautifulsoup4 = "^4.12.3"
 fastapi = "^0.115.0"
-graphql-core = "3.2.1"
-lxml = "4.9.1"
-numpy = "1.23.1"
-pandas = "1.4.3"
-pydantic = "1.9.1"
-python-decouple = "3.6"
+graphql-core = "^3.2.4"
+lxml = "^5.3.0"
+numpy = "^2.1.1"
+pandas = "^2.2.3"
+python-decouple = "^3.8"
 python-levenshtein = "^0.26.0"
-requests = "2.28.1"
-strawberry-graphql = "0.177.1"
-thefuzz = "0.19.0"
+requests = "^2.32.3"
+strawberry-graphql = "^0.243.1"
+thefuzz = "^0.22.1"
 uvicorn = "^0.31.0"
 uvloop = "^0.20.0"
-ormar = {extras = ["postgresql"], version = "^0.12.2"}
+ormar = {extras = ["postgresql"], version = "^0.20.1"}
 
 
 [tool.poetry.group.dev.dependencies]
