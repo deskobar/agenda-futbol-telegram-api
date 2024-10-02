@@ -1,7 +1,7 @@
 import pandas as pd
 import requests
+import io
 from bs4 import BeautifulSoup
-
 from cache import ttl_cache
 from settings import URL, REQUEST_TIMEOUT
 from utils import parse_day_to_date
@@ -52,6 +52,6 @@ def get_events_df():
     :return: A Pandas Dataframe.
     """
     html = get_html_text()
-    raw_df = pd.read_html(html)[0]
+    raw_df = pd.read_html(io.StringIO(html))[0]
     df = process_df_using_html(raw_df, html)
     return df
